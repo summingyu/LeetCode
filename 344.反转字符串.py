@@ -43,5 +43,14 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
+        '''
+        解法一.直接使用列表的reverse函数
+        '''
+        # s.reverse()
+        '''
+        解法二.使用双指针
+        '''
+        for i in range(len(s)//2):
+            s[i], s[-1-i] = s[-1-i], s[i]
 # @lc code=end
 
