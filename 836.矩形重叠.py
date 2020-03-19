@@ -43,11 +43,12 @@
 # @lc code=start
 class Solution:
     '''
-    相交就表示两个维度的区间分别相交
+    相交就表示两个维度的区间分别相交,
+    最大的开始端小于最小的结束端则相交
     '''
     def isRectangleOverlap(self, rec1: List[int], rec2: List[int]) -> bool:
-        x_overlap = rec1[2] > rec2[0] and rec2[2] > rec1[0]
-        y_overlap = rec1[3] > rec2[1] and rec2[3] > rec1[1]
+        x_overlap = max(rec1[0],rec2[0]) < min(rec1[2], rec2[2])
+        y_overlap = max(rec1[1], rec2[1]) < min(rec1[3],rec2[3])
         return x_overlap and y_overlap
 # @lc code=end
 
