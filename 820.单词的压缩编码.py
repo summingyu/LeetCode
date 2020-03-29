@@ -48,11 +48,11 @@ class Solution:
     def minimumLengthEncoding(self, words: List[str]) -> int:
         # 如果一个单词属于另一个单词的后缀,则不计算长度
         # 反转之后,排序,如果当前单词完全属于下一个单词,那么就丢弃这个单词
-        words = [word[::-1] for word in words]
+        words = [word[::-1] for word in set(words)]
         words.sort()
         ans = 0
         lenth = len(words)
-        for i ,word in enumerate(words):
+        for i , word in enumerate(words):
             if i < lenth-1 and words[i+1].startswith(word):
                 continue
             ans += len(word)+1
